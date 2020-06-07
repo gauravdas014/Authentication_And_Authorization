@@ -52,7 +52,7 @@ exports.createUser = async (req, res) => {
 
 exports.updateUser = async (req, res) => {
   try {
-    const tour = await User.findByIdAndDelete(req.params.id, req.body, {
+    const user = await User.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,
     });
@@ -65,14 +65,21 @@ exports.updateUser = async (req, res) => {
   } catch (err) {
     res.status(400).json({
       status: "fail",
-      message: "User details could not be updated",
+      message: err,
     });
   }
 };
 
-exports.deleteUser = (req, res) => {
-  res.status(200).json({
-    status: "success",
-    message: "This route is not yet implemented",
-  });
+exports.deleteUser = async (req, res) => {
+  try {
+    await User.findByIdAndDelete(req.params.id);
+    res.status(200).json({
+      status: "success",
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: "fail",
+      message: err,
+    });
+  }
 };
