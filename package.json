@@ -1,0 +1,24 @@
+{
+  "name": "authentication_and_authorization",
+  "version": "1.0.0",
+  "description": "Made the Authentication and Authorization system using node js, express, mongo db. Only backend part is made.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gauravdas014/Authentication_And_Authorization.git"
+  },
+  "author": "Gaurav Das",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gauravdas014/Authentication_And_Authorization/issues"
+  },
+  "homepage": "https://github.com/gauravdas014/Authentication_And_Authorization#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.18",
+    "morgan": "^1.10.0"
+  }
+}
