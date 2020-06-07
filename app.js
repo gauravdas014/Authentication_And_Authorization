@@ -1,5 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
+const userRouter = require("./routes/userRoutes");
 
 const app = express();
 
@@ -8,5 +9,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 app.use(express.json());
+
+app.use("/user", userRouter);
 
 module.exports = app;
