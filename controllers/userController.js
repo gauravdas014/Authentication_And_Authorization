@@ -2,7 +2,7 @@ const User = require("../models/userModel");
 
 exports.getAllUsers = async (req, res) => {
   try {
-    const users = await User.find();
+    const users = await User.find().select("-password -role -email");
     res.status(200).json({
       status: "success",
       Total_Users: users.length,
@@ -18,7 +18,9 @@ exports.getAllUsers = async (req, res) => {
 
 exports.getUser = async (req, res) => {
   try {
-    const user = await User.findById(req.params.id);
+    const user = await User.findById(req.params.id).select(
+      "-password -email -role"
+    );
     res.status(200).json({
       status: "success",
       data: {
@@ -35,7 +37,7 @@ exports.getUser = async (req, res) => {
 
 exports.createUser = async (req, res) => {
   try {
-    const newUser = await User.create(req.body);
+    const newUser = await User.create(req.body).select("-password -role");
     res.status(201).json({
       status: "success",
       data: {
@@ -55,7 +57,7 @@ exports.updateUser = async (req, res) => {
     const user = await User.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,
-    });
+    }).select("-password -role");
     res.status(200).json({
       status: "success",
       data: {
