@@ -17,9 +17,11 @@
   },
   "homepage": "https://github.com/gauravdas014/Authentication_And_Authorization#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongoose": "^5.9.18",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "validator": "^13.0.0"
   }
 }
