@@ -10,6 +10,6 @@ if (process.env.NODE_ENV === "development") {
 
 app.use(express.json());
 
-app.use("/user", userRouter);
+app.use("/users", userRouter);
 
 module.exports = app;
